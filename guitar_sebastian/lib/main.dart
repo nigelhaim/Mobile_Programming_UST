@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(GuitarApp());
 
@@ -12,6 +13,10 @@ class GuitarApp extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             textStyle: const TextStyle(fontSize: 20)),
         onPressed: () {
+          final player = AudioPlayer();
+          player.setSource(AssetSource('guitar_sounds/$tone.wav'));
+          player.play(AssetSource('guitar_sounds/$tone.wav'));
+
           print('$tone has been pressed');
         },
         child: Text(tone),
@@ -43,6 +48,52 @@ class GuitarApp extends StatelessWidget {
                               Container(
                                 margin: EdgeInsets.only(top: 380),
                                 child: createButton('DO'),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 260),
+                                child: createButton('RE'),
+                              ),
+                            ],
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(left: 5),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 190),
+                                child: createButton('MI'),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 140),
+                                child: createButton('FA'),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 260),
+                                child: createButton('SOL'),
+                              ),
+                            ],
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(left: 5),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 20),
+                                child: createButton('LA'),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 280),
+                                child: createButton('TI'),
+                              ),
+                            ],
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(left: 3),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(bottom: 600),
+                                child: createButton('DO#'),
                               ),
                             ],
                           )),
